@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Timeloop</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app">
+        <aside class="sidebar">
+            <h2 class="logo">Timeloop<span></span></h2>
+
+            <p class="nav-label">WORKSPACE</p>
+            <nav>
+                <a class="nav-item active" href="#dashboard">Dashboard</a>
+                <a class="nav-item" href="#tasks">Tasks</a>
+                <a class="nav-item" href="#timeline">Timeline</a>
+            </nav>
+            <div class="sidebar-bottom">
+                <p>YOUR TIME. YOUR RULES.</p>
+            </div>
+        </aside>
+
+        <main id="dashboard">
+            <header class="topbar">
+                <div>
+                    <p class="eyebrow">YOUR PERSONAL WORKSPACE</p>
+                    <h1>Make today count</h1>
+                    <p class="subtitle">Small steps. Real progress.</p>
+                </div>
+                <div class="date-badge" id="today">Today</div>
+            </header>
+
+            <section class="stats">
+                <article class="stat-card">
+                    <p>FOCUS TIME</p>
+                    <h2 id="focusTotal">00:00:00</h2>
+                    <span>Time spent focusing today</span>
+                </article>
+                <article class="stat-card">
+                    <p>FOCUS SESSIONS</p>
+                    <h2 id="sessionCount">0</h2>
+                    <span>Sessions completed today</span>
+                </article>
+            </section>
+            <section class="content-grid">
+                <article class="panel focus-panel">
+                    <div class="panel-heading">
+                        <div>
+                            <p class="eyebrow">STAY IN THE ZONE</p>
+                            <h2>Focus timer</h2>
+                        </div>
+                        <span class="live-dot"></span>
+                    </div>
+                    <label for="activity">What are you working on?</label>
+                    <input id="activity" type="text" placeholder="e.g. Learn Python">
+                    <div class="timer" id="timer">25:00</div>
+                    <p class="timer-caption" id="timerStatus">Ready when you are.</p>
+
+                    <div class="timer-actions">
+                        <button id="startBtn" class="primary-btn">Start focus</button>
+                        <button id="resetBtn" class="secondary-btn">Reset</button>
+                    </div>
+                    <p class="hint">Complete a session to record your focus."</p>
+                </article>
+
+                <article class="pane" id="tasks">
+                    <div class="panel-holding">
+                        <div>
+                            <p class="eyebrow">ONE THING AT A TIME</p>
+                            <h2>Today's tasks</h2>
+                        </div>
+                        <div class="task-completed">
+                            <span>Completed tasks:</span>
+                            <strong id="completedCount">0</strong>
+                        </div>
+                        <form id="taskForm">
+                            <input id="taskInput" type="text" placeholder="Add a task..." maxlength="99" required>
+                            <button class="add-btn" type="submit" aria-label="Add task">+</button>
+                        </form>
+                        <ul id="taskList" class="task-list"></ul>
+                        <p id="emptyTasks" class="empty-state"></p>
+                </article>
+                        <span class="task-bridge" id="taskBadge">0 tasks</span>
+                    </div>
+                    <form id="taskForm">
+                        <input id="taskInput" type="text" placeholder="Add a task..." maxlength="99" required>
+                        <button class="add-btn" type="submit" aria-label="Add task">+</button>  
+                    </form>
+
+                    <ul id="taskList" class="task-list"></ul>
+                    <p id="emptyTasks" class="empty-state"></p>
+                </article>
+            </section>
+            <section class="panel Timeline-panel" id="timeline">
+                <div class="panel-heading">
+                    <div>
+                        <p class="eyebrow">YOUR DAY AT A GLANCE</p>
+                        <h2>Focus timeline</h2>
+                    </div>
+                    <span class="task-bridge">TODAY</span>
+                </div>
+                <div id="timelineList"></div>
+            </section>
+            <section class="panel analytics-panel"id="analytics">
+                <div class="panel-heading">
+                    <div>
+                        <p class="eyebrow">YOUR PRODUCTIVITY</p>
+                        <h2>Weekly Analytics</h2>
+                    </div>
+                    <span class="task-bridge">LAST 7 DAYS</span>
+                </div>
+                <div class="analytics-stats">
+                    <article class="stat-card">
+                        <p>WEEKLY FOCUS</p>
+                        <h2 id="weeklyFocus">0h 0m</h2>
+                        <span>Total time focused</span>
+                    </article>
+                    <article class="stat-card">
+                        <p>FOCUS SESSIONS</p>
+                        <h2 id="weeklySessions">0</h2>
+                        <span>Sessions completed</span>
+                    </article>
+                    <article class="stat-card">
+                        <p>TASKS COMPLETED</p>
+                        <h2 id="weeklyTasks">0</h2>
+                        <span>Tasks finished this week</span>
+                    </article>
+                </div>
+                <div class="chart-container">
+                    <h3>Daily focus time</h3>
+                    <canvas id="weeklyChart"></canvas>
+                </div>
+                <div class="chart-container">
+                    <h3>Daily completed tasks</h3>
+                    <canvas id="tasksChart"></canvas>
+                </div>
+            </section>
+            <footer>TIME IS YOUR MOST VALUABLLE RESOURCE.USE TI WELL</footer>
+        </main>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="script.js"></script>
+  
+</body>
+</html>
