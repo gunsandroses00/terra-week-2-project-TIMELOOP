@@ -36,7 +36,7 @@ function loadData(){
   };
 }
 let data=loadData();
-let duration=10;
+let duration=25*60;
 let remaining=duration;
 let interval=null;
 let running=false;
